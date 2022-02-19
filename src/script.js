@@ -1,6 +1,5 @@
 function formatDate(timestamp) {
   let weatherDate = new Date(timestamp);
-
   //month and date
   let months = [
     "January",
@@ -20,7 +19,6 @@ function formatDate(timestamp) {
   let month = months[weatherDate.getMonth()];
 
   let date = weatherDate.getDate();
-
   // day of teh week
   let days = [
     "Sunday",
@@ -32,7 +30,6 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[weatherDate.getDay()];
-
   // current time
   let hours = weatherDate.getHours();
   if (hours < 10) {
@@ -42,10 +39,8 @@ function formatDate(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-
   let newTime = `${hours}:${minutes}`;
-
-  //current daye
+  //current date
   let currentDate = document.querySelector("h2");
 
   return `${month} ${date} </br> ${day} ${newTime}`;
@@ -73,14 +68,19 @@ function displayCurrentWeatherConditions(response) {
   currentCity = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   let temperatureNow = document.querySelector("#temp-main");
-  temperatureNow.innerHTML = temperature;
+  let dateElement = document.querySelector("h2");
+  let iconElement = document.querySelector("#icon");
 
+  temperatureNow.innerHTML = temperature;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(
     response.data.wind.speed
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
-  let dateElement = document.querySelector("h2");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
