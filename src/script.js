@@ -1,53 +1,55 @@
-let weatherDate = new Date();
+function formatDate(timestamp) {
+  let weatherDate = new Date(timestamp);
 
-//month and date
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "November",
-  "October",
-  "December",
-];
+  //month and date
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "November",
+    "October",
+    "December",
+  ];
 
-let month = months[weatherDate.getMonth()];
+  let month = months[weatherDate.getMonth()];
 
-let date = weatherDate.getDate();
+  let date = weatherDate.getDate();
 
-// day of teh week
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thuesday",
-  "Friday",
-  "Saturday",
-];
-let day = days[weatherDate.getDay()];
+  // day of teh week
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thuesday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[weatherDate.getDay()];
 
-// current time
-let hours = weatherDate.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
+  // current time
+  let hours = weatherDate.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = weatherDate.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let newTime = `${hours}:${minutes}`;
+
+  //current daye
+  let currentDate = document.querySelector("h2");
+
+  return `${month} ${date} </br> ${day} ${newTime}`;
 }
-let minutes = weatherDate.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-
-let newTime = `${hours}:${minutes}`;
-
-//current daye
-let currentDate = document.querySelector("h2");
-
-currentDate.innerHTML = `${month} ${date}th </br> ${day} ${newTime}`;
 
 //search bar
 function currentCity(event) {
@@ -65,7 +67,7 @@ let currentCityForm = document.querySelector("#search-engine");
 
 currentCityForm.addEventListener("submit", currentCity);
 
-//current temperature
+//current temperature and wather conditions
 function displayCurrentWeatherConditions(response) {
   let currentCity = document.querySelector("#city");
   currentCity = response.data.name;
@@ -79,4 +81,6 @@ function displayCurrentWeatherConditions(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+  let dateElement = document.querySelector("h2");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
