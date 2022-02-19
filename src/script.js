@@ -67,6 +67,8 @@ currentCityForm.addEventListener("submit", currentCity);
 
 //current temperature
 function displayCurrentWeatherConditions(response) {
+  let currentCity = document.querySelector("#city");
+  currentCity = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   let temperatureNow = document.querySelector("#temp-main");
   temperatureNow.innerHTML = temperature;
@@ -78,7 +80,3 @@ function displayCurrentWeatherConditions(response) {
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
 }
-
-//current location
-let currentLocation = document.querySelector("#current");
-currentLocation.addEventListener("click", getCurrentLocation);
