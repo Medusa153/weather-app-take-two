@@ -34,7 +34,7 @@ h3 {
 i {
   text-align: center;
 }
-button {
+.go {
   padding: 9px 25px;
   background-color: #1f1d36;
   color: #e9a6a6;
@@ -46,7 +46,7 @@ button {
   box-shadow: 6px 6px 10px #3f3351;
 }
 
-button:hover {
+.go:hover {
   background-color: #e9a6a6;
   color: #1f1d36;
   border: solid 2px #1f1d36;
@@ -71,7 +71,6 @@ p {
 
 .search_bar {
   height: 50px;
-  padding: 10px 80px;
   background: #dddddd;
   border-radius: 25px;
   border: solid 2px #1f1d36;

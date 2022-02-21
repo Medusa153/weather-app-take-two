@@ -29,11 +29,15 @@
 
     <div class="container">
       <form id="search-engine">
-        <input type="search" class="search_bar" id="search-bar" placeholder="Enter your city..." />
-        <button class="go">Go!</button>
-        <span id="location-button">
-          <button>🧭</button>
-        </span>
+        <div class="row">
+          <div class="col-9">
+        <input type="search" class="search_bar form-control" id="search-bar" placeholder="Enter your city..." 
+        autocomplete="off"/>
+        </div>
+        <div class="col-3">
+        <input type="submit" value="Search" class="go"/>
+        </div>
+        </div>
       </form>
       <div class="main">  
       <h1 id="city">
