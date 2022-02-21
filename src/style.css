@@ -75,6 +75,7 @@ p {
   border-radius: 25px;
   border: solid 2px #1f1d36;
   box-shadow: 6px 6px 10px #3f3351;
+  padding: 0 30px;
 }
 
 .tempMain {
@@ -93,10 +94,8 @@ p {
   max-width: 450px;
 }
 
-.weather_icon {
-  text-align: center;
-  padding: 40px;
-  font-size: 90px;
+.icon {
+  image-resolution: 100px;
 }
 
 .details {
