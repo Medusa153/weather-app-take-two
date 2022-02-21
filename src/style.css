@@ -107,6 +107,7 @@ p {
 .unit {
   text-decoration: none;
   color: #dddddd;
+  cursor: default;
 }
 .unit:hover {
   color: #864879;
