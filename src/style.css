@@ -23,7 +23,7 @@ h2 {
 }
 
 h3 {
-  max-width: 400px;
+  max-width: 350px;
   text-align: right;
   font-size: 25px;
   font-family: "Poppins", sans-serif;
@@ -31,8 +31,9 @@ h3 {
   line-height: 1.25;
 }
 
-i {
-  text-align: center;
+#icon {
+  height: 120px;
+  width: 120px;
 }
 .go {
   padding: 9px 25px;
@@ -91,11 +92,7 @@ p {
   padding-bottom: 15px;
   border-radius: 25px;
   box-shadow: 9px 9px 10px #3f3351;
-  max-width: 450px;
-}
-
-.icon {
-  image-resolution: 100px;
+  max-width: 400px;
 }
 
 .details {
