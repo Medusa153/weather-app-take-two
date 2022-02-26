@@ -64,27 +64,29 @@ currentCityForm.addEventListener("submit", currentCity);
 
 //current temperature and wather conditions
 function displayCurrentWeatherConditions(response) {
-  let currentCity = document.querySelector("#city");
-  currentCity = response.data.name;
+  let cityElement = document.querySelector("#city");
+
   let temperature = Math.round(response.data.main.temp);
-  let temperatureNow = document.querySelector("#temp-main");
+  let temperatureElement = document.querySelector("#temp-main");
+  let description = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind-speed");
   let dateElement = document.querySelector("h2");
   let iconElement = document.querySelector("#icon");
 
-  celciusTemperature = Math.round(response.data.main.temp);
+  temperatureElement.innerHTML = temperature;
+  cityElement.innerHTML = response.data.name;
+  description.innerHTML = response.data.weather[0].main;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
 
-  temperatureNow.innerHTML = temperature;
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind-speed").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-  document.querySelector("#description").innerHTML =
-    response.data.weather[0].main;
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  celciusTemperature = Math.round(response.data.main.temp);
+  console.log(response);
 }
 
 //fahrenheit conversion
