@@ -129,6 +129,7 @@ function search(city) {
 
   axios.get(apiUrl).then(displayCurrentWeatherConditions);
 }
+
 //search bar
 function handleSubmit(event) {
   event.preventDefault();
