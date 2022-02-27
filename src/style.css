@@ -114,15 +114,15 @@ p {
   font-family: "Poppins", sans-serif;
   font-weight: 200;
   line-height: 1.5;
-  margin-top: 40px;
+  margin-top: 40px 20px 0 20px;
 }
 
 .following-days {
   font-size: 20px;
   text-align: center;
   background-color: rgba(31, 29, 54, 0.9);
-  padding: 20px 10px;
-  margin: 0 5px 0 5px;
+  padding: 10px 20px;
+  margin: 40px 22px 0 5px;
   border-radius: 25px;
   border: solid 2px #dddddd;
   box-shadow: 9px 9px 10px #3f3351;
@@ -140,4 +140,7 @@ p {
 
 .link {
   color: #864879;
+}
+#small-icon {
+  width: 80px;
 }
