@@ -62,9 +62,6 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-let form = document.querySelector("#search-engine");
-form.addEventListener("submit", handleSubmit);
-
 //current temperature and wather conditions
 function displayCurrentWeatherConditions(response) {
   console.log(response.data);
@@ -95,25 +92,24 @@ function displayCurrentWeatherConditions(response) {
 //fahrenheit conversion
 function displayFarhrenheit(event) {
   event.preventDefault();
-
   celciusValue.classList.remove("active");
   fahrenheitValue.classList.add("active");
-
   let fahrenheitTempareture = (celciusTemperature * 9) / 5 + 32;
-  let temperatureNow = document.querySelector("#temp-main");
-  temperatureNow.innerHTML = Math.round(fahrenheitTempareture);
+  let temperatureElement = document.querySelector("#temp-main");
+  temperatureElement.innerHTML = Math.round(fahrenheitTempareture);
 }
 
 //celcius conversion
 function displayCelcius(event) {
   event.preventDefault();
-
   celciusValue.classList.add("active");
   fahrenheitValue.classList.remove("active");
-
-  let temperatureNow = document.querySelector("#temp-main");
-  temperatureNow.innerHTML = celciusTemperature;
+  let temperatureElement = document.querySelector("#temp-main");
+  temperatureElement.innerHTML = celciusTemperature;
 }
+
+let form = document.querySelector("#search-engine");
+form.addEventListener("submit", handleSubmit);
 
 let celciusTemperature = null;
 
@@ -122,3 +118,5 @@ fahrenheitValue.addEventListener("click", displayFarhrenheit);
 
 let celciusValue = document.querySelector("#celcius-temp");
 celciusValue.addEventListener("click", displayCelcius);
+
+search("Tokio");
