@@ -56,7 +56,7 @@ function displayForecast() {
 
   days.forEach(function (day) {
     forecastHTML =
-      forecastHTMl +
+      forecastHTML +
       `
     <div class="col-2 following-days">
       <div class="weather-forcast-days">${day}</div>
@@ -72,6 +72,7 @@ function displayForecast() {
 
   forecastHTML = forecastHTML + `</div>;`;
   forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
 }
 
 //current temperature and wather conditions
