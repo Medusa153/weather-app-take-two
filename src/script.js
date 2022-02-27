@@ -87,11 +87,9 @@ function displayForecast(response) {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "fcac5dd303c21e6aeec01bc1d83e65b8";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   console.log(apiUrl);
@@ -100,7 +98,6 @@ function getForecast(coordinates) {
 
 //current temperature and wather conditions
 function displayCurrentWeatherConditions(response) {
-  console.log(response.data);
   let cityElement = document.querySelector("#city");
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temp-main");
@@ -122,8 +119,6 @@ function displayCurrentWeatherConditions(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   celciusTemperature = Math.round(response.data.main.temp);
-
-  console.log(response.data);
 
   getForecast(response.data.coord);
 }

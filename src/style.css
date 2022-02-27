@@ -2,7 +2,7 @@ body {
   display: block;
   margin: 20px;
   background-image: url("../images/weather_app_background.jpg");
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center;
   background-size: cover;
 }
