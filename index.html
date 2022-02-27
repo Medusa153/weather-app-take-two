@@ -18,161 +18,78 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
   </head>
 
   <body>
-
     <div class="container">
       <form id="search-engine">
         <div class="row">
           <div class="col-9">
-        <input type="search" placeholder="Enter your city..." 
-        autocomplete="off" class="search_bar form-control" id="city-input"/>
-        </div>
-        <div class="col-2">
-        <input type="submit" value="Search" class="go"/>
-        </div>
+            <input
+              type="search"
+              placeholder="Enter your city..."
+              autocomplete="off"
+              class="search_bar form-control"
+              id="city-input"
+            />
+          </div>
+          <div class="col-2">
+            <input type="submit" value="Search" class="go" />
+          </div>
         </div>
       </form>
-      <div class="main">  
-      <h1 id="city">
-        your city
-      </h1>
+      <div class="main">
+        <h1 id="city">your city</h1>
 
-      <h2>
+        <h2>
           date
           <br />
-        day, time
-      </h2>
+          day, time
+        </h2>
 
-      <img src="http://openweathermap.org/img/wn/10d@2x.png"
-      id="icon">
-      <h3>
-        <div id = "currentTemp">
-          <span class="tempMain" id="temp-main">
-        15 
-      </span>
-        <span class = "units">
-          <a class="unit" href = "#" id="celcius-temp" class="active">°C </a>| 
-          <a class="unit" href="#" id ="fahrenheit-temp">°F</a>
-        </span>
-        </div>
-        <em> 
-          <span id="description">
-        partly cloudy
-        </span>
-      </em>
-      <br />
-      <span class="details">
-        Humidity: <span id="humidity">0</span>%
-        <br /> 
-        Wind: 
-        <span id="wind-speed">
-          0 
-        </span> mph 
-      </span> 
-      </h3>
-
-    </div>
-    <div class="weather-forcast">
-      <div class="row">
-        <div class="col"> 
-          <span class="days">
-            Tue 
-          </span> 
-          <br /> 
-          <i class="far fa-sun small_icon"></i> 
-          <br/> 
-          <strong>
-            11°C
-          </strong>
-            7°C
-        </div>
-        <div class="col">
-          <span class="days">
-            Wed
-          </span> 
-          <br /> 
-          <i class="fas fa-cloud small_icon"></i> 
-          <br/> 
-          <strong>
-            8°C
-          </strong>
-           2°C          
-        </div>
-
-        <div class="col">
-          <span class="days">
-            Thu
-          </span> 
-          <br/> 
-          <i class="fas fa-cloud-rain small_icon"></i> 
-          <br/> 
-          <strong>
-            6°C 
-          </strong>
-          -2°C
-         
-        </div>
-        <div class="col">
-          <span class="days">
-            Fri
-          </span>  
-          <br /> 
-          <i class="far fa-sun small_icon"></i>
-          <br/> 
-          <strong>
-            7°C
-          </strong>
-           3°C
-          
-        </div>
-        <div class="col">
-          <span class="days">
-            Sat 
-          </span>
-          <br /> 
-          <i class="fas fa-cloud small_icon"></i>
-          <br/> 
-          <strong>
-            6°C
-          </strong>
-           3°C
-        </div>
-
-      <div class="col">
-          <span class="days">
-             Sun 
+        <img src="http://openweathermap.org/img/wn/10d@2x.png" id="icon" />
+        <h3>
+          <div id="currentTemp">
+            <span class="tempMain" id="temp-main"> 15 </span>
+            <span class="units">
+              <a class="unit" href="#" id="celcius-temp" class="active">°C </a>|
+              <a class="unit" href="#" id="fahrenheit-temp">°F</a>
             </span>
-            <br /> 
-            <i class="fas fa-cloud small_icon"></i>
-            <br/> 
-            <strong>
-              5°C
-            </strong>
-             3°C
-        </div>
+          </div>
+          <em>
+            <span id="description"> partly cloudy </span>
+          </em>
+          <br />
+          <span class="details">
+            Humidity: <span id="humidity">0</span>%
+            <br />
+            Wind:
+            <span id="wind-speed"> 0 </span> mph
+          </span>
+        </h3>
       </div>
+      <div class="weather-forcast" id="forecast"></div>
+    </div>
 
-      </div>
-    </div>
-    </div>
     <p>
-      <small><a class = "link" 
-        href="https://https://github.com/Medusa153/weather-app-take-two"
-        target="_blank">
-        Open-source code
-      </a>
-       by Karolina Kowalska
-        </small>
+      <small
+        ><a
+          class="link"
+          href="https://https://github.com/Medusa153/weather-app-take-two"
+          target="_blank"
+        >
+          Open-source code
+        </a>
+        by Karolina Kowalska
+      </small>
     </p>
-    <script src="src/script.js">
-      
-    </script>
+    <script src="src/script.js"></script>
   </body>
 </html>

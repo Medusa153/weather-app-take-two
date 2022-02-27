@@ -109,7 +109,7 @@ p {
   color: #864879;
 }
 
-.row {
+.weather-forcast {
   color: #e9a6a6;
   font-family: "Poppins", sans-serif;
   font-weight: 200;
@@ -117,7 +117,7 @@ p {
   margin-top: 40px;
 }
 
-.col {
+.following-days {
   font-size: 20px;
   text-align: center;
   background-color: rgba(31, 29, 54, 0.9);
@@ -128,9 +128,14 @@ p {
   box-shadow: 9px 9px 10px #3f3351;
 }
 
-.days {
+.weather-forcast-days {
   font-size: 30px;
   font-weight: 700;
+  opacity: 0.6;
+}
+
+.weather-forcast-temp-min {
+  opacity: 0.6;
 }
 
 .link {

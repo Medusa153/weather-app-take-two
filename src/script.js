@@ -46,27 +46,38 @@ function formatDate(timestamp) {
   return `${month} ${date} </br> ${day} ${newTime}`;
 }
 
-function search(city) {
-  let apiKey = "fcac5dd303c21e6aeec01bc1d83e65b8";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+// following days forecast
 
-  axios.get(apiUrl).then(displayCurrentWeatherConditions);
-}
-//search bar
-function handleSubmit(event) {
-  event.preventDefault();
-  let cityInputElement = document.querySelector("#city-input");
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Mon", "Tue", "Wed", "Thu"];
 
-  let city = document.querySelector("h1");
-  city.innerHTML = `${cityInputElement.value}`;
-  search(cityInputElement.value);
+  let forecastHTML = `<div class="row">`;
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTMl +
+      `
+    <div class="col-2 following-days">
+      <div class="weather-forcast-days">${day}</div>
+      <i class="far fa-sun small_icon"></i>
+      <div class="weather-forcast-temp">
+        <span class="weather-forcast-temp-max">11°C </span>
+        <span class="weather-forcast-temp-min">7°C </span>
+      </div>
+    </div>
+  
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>;`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 //current temperature and wather conditions
 function displayCurrentWeatherConditions(response) {
   console.log(response.data);
   let cityElement = document.querySelector("#city");
-
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temp-main");
   let description = document.querySelector("#description");
@@ -89,6 +100,21 @@ function displayCurrentWeatherConditions(response) {
   celciusTemperature = Math.round(response.data.main.temp);
 }
 
+function search(city) {
+  let apiKey = "fcac5dd303c21e6aeec01bc1d83e65b8";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayCurrentWeatherConditions);
+}
+//search bar
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  let city = document.querySelector("h1");
+  city.innerHTML = `${cityInputElement.value}`;
+  search(cityInputElement.value);
+}
+
 //fahrenheit conversion
 function displayFarhrenheit(event) {
   event.preventDefault();
@@ -108,10 +134,10 @@ function displayCelcius(event) {
   temperatureElement.innerHTML = celciusTemperature;
 }
 
+let celciusTemperature = null;
+
 let form = document.querySelector("#search-engine");
 form.addEventListener("submit", handleSubmit);
-
-let celciusTemperature = null;
 
 let fahrenheitValue = document.querySelector("#fahrenheit-temp");
 fahrenheitValue.addEventListener("click", displayFarhrenheit);
@@ -120,3 +146,4 @@ let celciusValue = document.querySelector("#celcius-temp");
 celciusValue.addEventListener("click", displayCelcius);
 
 search("Tokio");
+displayForecast();
